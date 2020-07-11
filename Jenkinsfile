@@ -9,10 +9,10 @@ pipeline {
 		stage('Getting Credential') {
               		steps {
                			script {
-                         		withCredentials([ usernamePassword(credentialsId: 'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'GIT_PASS')])
-                         		//sh GIT_PASS = $PASSWORD
+                         		withCredentials([ usernamePassword(credentialsId: 'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+                         		sh GIT_PASS = $PASSWORD
                          		{
-                         		print 'username=' + USERNAME + 'password=' + GIT_PASS
+                         		print 'username=' + USERNAME + 'password=' + PASSWORD
                          		}
                            	      }
                        		}
