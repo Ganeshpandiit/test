@@ -21,7 +21,7 @@ pipeline {
                 	}
 		stage ('build') {
 			steps {
-			sh 'echo $GIT_PASS'
+			git clone -b IKS-new --single-branch https://ganeshpandiit:${GIT_PASS}@ghttps://github.com/Ganeshpandiit/java.git
 			}
 		}
 		
