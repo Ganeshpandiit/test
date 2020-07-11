@@ -12,7 +12,7 @@ pipeline {
 		stage ('build') {
 			steps {
 				dir ('sourcec_ode') {
-				git branch: 'env.REST_BRANCH', credentialsId: 'env.CERD_ID', url: 'env.GIT_URI'
+				git branch: 'REST_BRANCH', credentialsId: 'CERD_ID', url: 'GIT_URI'
 				}
 				sh '''
 				ls -la
