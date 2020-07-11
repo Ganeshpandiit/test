@@ -21,7 +21,7 @@ pipeline {
                 	}
 		stage ('build') {
 			steps {
-			git clone -b master --single-branch https://ganeshpandiit:${GIT_PASS}@ghttps://github.com/Ganeshpandiit/java.git
+			sh git clone -b master --single-branch https://ganeshpandiit:${GIT_PASS}@ghttps://github.com/Ganeshpandiit/java.git
 			}
 		}
 		
