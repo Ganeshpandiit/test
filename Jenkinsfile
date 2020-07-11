@@ -10,8 +10,10 @@ pipeline {
               		steps {
                			script {
                          		withCredentials([ usernamePassword(credentialsId: 'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
-                         		sh 'echo $PASSWORD > myfile'
+                         		
                          		{
+						sh 'echo $PASSWORD > myfile'
+						sh 'cat myfile'
                          		print 'username=' + USERNAME + 'password=' + PASSWORD
                          		}
                            	      }
