@@ -20,11 +20,11 @@ pipeline {
                 	}
 		stage ('build') {
 			steps {
-			git branch: 'master',
-				credentialsId: 'github_ganesh',
-			url: 'https://github.com/Ganeshpandiit/java.git'
+				dir ('sourcec_ode') {
+				git branch: 'master', credentialsId: 'github_ganesh', url: 'https://github.com/Ganeshpandiit/java.git'
+				}
 				sh '''
-				ls -la
+				ls -la sourcec_ode
 				'''
 			
 			}
