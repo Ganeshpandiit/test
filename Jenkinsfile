@@ -9,7 +9,8 @@ pipeline {
 		stage('Getting Credential') {
               		steps {
                			script {
-                         		withCredentials([ usernamePassword(credentialsId: 'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+					withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) 
+                         		//withCredentials([ usernamePassword(credentialsId: 'github_ganesh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                          		
                          		{
 						sh 'echo $PASSWORD > myfile'
