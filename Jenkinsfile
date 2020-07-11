@@ -13,7 +13,7 @@ pipeline {
                          		
                          		{
 						sh 'echo $PASSWORD > myfile'
-						sh 'cat myfile'
+						sh 'GIT_PASS = $PASSWORD'
                          		print 'username=' + USERNAME + 'password=' + PASSWORD
                          		}
                            	      }
@@ -21,9 +21,12 @@ pipeline {
                 	}
 		stage ('build') {
 			steps {
-			git branch: 'master',
-				credentialsId: 'github_ganesh',
-				url: 'https://github.com/Ganeshpandiit/java.git'
+			sh '''
+				git clone -b master --single-branch https://ganeshpandiit:${GIT_PASS}@github.com/Ganeshpandiit/java.git
+			'''
+			//git branch: 'master',
+			//	credentialsId: 'github_ganesh',
+			//	url: 'https://github.com/Ganeshpandiit/java.git'
 			
 			}
 		}
