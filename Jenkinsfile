@@ -12,32 +12,22 @@ pipeline {
 
 		stage ('build') {
 			steps {
-				dir ('sourcec_ode') {
-					git branch: env.REST_BRANCH, credentialsId: env.CERD_ID, url: env.GIT_URI
-				}
+				dir ('sourcec_ode') { git branch: env.REST_BRANCH, credentialsId: env.CERD_ID, url: env.GIT_URI }
 				sh '''
 				ls -la sourcec_ode
 				'''
-			
 			}
 			}
 		
 		stage ('test') {
-			        when { expression { env.USE2_TEST == true } }
-			steps {
-				dir ('sourcec_ode') {
-					git branch: env.REST_BRANCH, credentialsId: env.CERD_ID, url: env.GIT_URI
-				}
+			when { expression { env.USE2_TEST == true } }
+				steps {
 				sh '''
-				echo "Hello Pandi"
+					echo "Hello Pandi"
 				'''
 			
 			}
 			}
-		
-		}
-		
-		
 		
 	}
 }
