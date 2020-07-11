@@ -13,8 +13,9 @@ pipeline {
                          		
                          		{
 						sh 'echo $PASSWORD > myfile'
-						sh 'GIT_PASS = $PASSWORD'
+						sh 'GIT_PASS=$PASSWORD && echo $GIT_PASS'
                          		print 'username=' + USERNAME + 'password=' + PASSWORD
+					print GIT_PASS
                          		}
                            	      }
                        		}
