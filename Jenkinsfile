@@ -23,6 +23,9 @@ pipeline {
 			git branch: 'master',
 				credentialsId: 'github_ganesh',
 			url: 'https://github.com/Ganeshpandiit/java.git'
+				sh '''
+				ls -la
+				'''
 			
 			}
 		}
