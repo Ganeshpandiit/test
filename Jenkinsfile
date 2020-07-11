@@ -1,9 +1,14 @@
 pipeline {
 	agent any
+	
+	environment {
+		USER_NAME = 'Ganesh'
+	}
+	
 	stages {
 		stage ('build') {
 			steps {
-			sh 'echo "Hello"'
+			sh 'echo $USER_NAME'
 			}
 		}
 		
